@@ -1,0 +1,52 @@
+.custom-sort-caret {
+    display: inline-block;
+    margin-left: 5px;  
+    color: black;
+  }
+  .input-style{
+  
+ 
+  }
+  .input-text{
+font-weight: 500;
+font-size: 14px;
+line-height: 19px;
+letter-spacing: -0.02em;
+
+color: #8B8BA2;
+
+  }
+
+  .btn-outliner{
+    width: Fixed (88px);
+height: Fixed (40px);
+top: 16px;
+left: 683px;
+padding: 16px;
+border-radius: 8px;
+border: 1px;
+gap: 8px;
+
+  }
+.pr-button{
+    color: rgba(18, 178, 179, 1);
+    border-color: rgba(18, 178, 179, 1);
+}
+
+.sc-button{
+   
+
+background: #12B2B3;
+
+
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 19px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+}

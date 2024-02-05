@@ -1,0 +1,88 @@
+/* RegisterModal.css */
+
+.register-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .register-modal.show {
+    display: block;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .modal-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .modal-body {
+    margin-bottom: 15px;
+  }
+  
+  .modal-body p {
+    margin-bottom: 10px;
+  }
+  
+  .step-names {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .step-names span {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    margin: 0 5px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .step-names span.active {
+    color: green;
+  }
+  
+  form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-footer button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .modal-footer button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
