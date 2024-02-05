@@ -1,4 +1,28 @@
+.navbar-header-text {
+  width: 125.87px;
+  height: 12.01px;
+}
 
+.nav-link {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #12112C;
+}
+
+.navbar-vertical{
+  background: rgba(236, 249, 249, 1);
+}
+
+.expanded{
+
+}
+
+.collapsed{
+  width: 100%;
+}
 
 nav {
   display: block;
@@ -32,11 +56,7 @@ nav {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .navbar-vertical .navbar-collapse:before {
-    content: "";
-    display: block;
-    margin: 1rem -1rem;
-  }
+
 }
 .navbar-vertical .navbar-nav {
   margin-left: -1rem;

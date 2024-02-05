@@ -9,43 +9,99 @@ import "../../App.css";
 import { FaDownload } from "react-icons/fa";
 import { FaPrint } from "react-icons/fa";
 import RegisterModal from "./RegisterModal";
-import { Row, Col, Button , Form } from "react-bootstrap";
+import { Row, Col, Button , Form ,Dropdown } from "react-bootstrap";
+
+const headerClasses = "font-design-header";
+  const dataClasses = "font-design-data";
+
+  const customOptionsFormatter = (cell, row) => (
+    <Dropdown>
+      <Dropdown.Toggle variant="outline-secondary" size="sm" id={`options-dropdown-${row.id}`}>
+        Options
+      </Dropdown.Toggle>
+      
+      <Dropdown.Menu>
+        <Dropdown.Item /* onClick={() => handleEdit(row)} */>Edit</Dropdown.Item>
+        <Dropdown.Item /* onClick={() => handleDelete(row.id)} */>Delete</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+
+const getStatusClass = (status) => {
+  switch (status) {
+    case "Revoked":
+      return "bg-danger p-1 text-sm status-data";
+    case "Completed":
+      return "bg-success p-1 text-sm status-data";
+    case "Expired":
+      return "bg-secondary p-1 text-sm status-data";
+    case "Pending":
+      return "bg-warning p-1 text-sm status-data";
+    case "Active":
+      return "bg-primary p-1 text-sm status-data";
+    default:
+      return "bg-light text-dark rounded p-1"; // Default style
+  }
+};
+const customStatusFormatter = (cell, row) => (
+  <span className={getStatusClass(row.status)}>
+    {cell}
+  </span>
+);
 
 const columns = [
   {
     dataField: "id",
     text: "SI.No",
     sort: true,
+    headerClasses,
+    classes: dataClasses,
   },
   {
     dataField: "status",
     text: "Status",
     sort: true,
+    headerClasses,
+    formatter: customStatusFormatter,
   },
   {
     dataField: "deviceType",
     text: "Device Type",
     sort: true,
+    headerClasses,
+                classes: dataClasses,
   },
   {
     dataField: "deviceName",
     text: "Device Name",
     sort: true,
+    headerClasses,
+                classes: dataClasses,
   },
   {
     dataField: "dateIssued",
     text: "Date Issued",
     sort: true,
+    headerClasses,
+                classes: dataClasses,
   },
   {
     dataField: "onTimePasscode",
     text: "On Time Passcode",
     sort: true,
+    headerClasses,
+                classes: dataClasses,
+  },
+  {
+    dataField: "options",
+    text: "", // Empty string for no column header
+    headerClasses: "d-none", // Hide the column header
+    formatter: customOptionsFormatter,
   },
 ];
 
 const customSortCaret = (order, column) => {
-  if (!order) return <FaSort />; // Default sorting indicator
+  if (!order) return <FaSort className="custom-sort-caret"/>; // Default sorting indicator
   else if (order === "asc")
     return (
       <span className="custom-sort-caret">
@@ -81,7 +137,7 @@ const DataTable = () => {
     },
     {
       id: 3,
-      status: "Active",
+      status: "Revoked",
       deviceType: "Mobile",
       deviceName: "iPhone",
       dateIssued: "2024-02-04",
@@ -95,7 +151,65 @@ const DataTable = () => {
       dateIssued: "2024-02-04",
       onTimePasscode: "123456",
     },
+    {
+      id: 5,
+      status: "Pending",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
+    {
+      id: 6,
+      status: "Completed",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
+    {
+      id: 7,
+      status: "Expired",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
+    {
+      id: 8,
+      status: "Completed",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
+    {
+      id: 9,
+      status: "Revoked",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
+    {
+      id: 10,
+      status: "Expired",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
+    {
+      id: 11,
+      status: "Pending",
+      deviceType: "Mobile",
+      deviceName: "iPhone",
+      dateIssued: "2024-02-04",
+      onTimePasscode: "123456",
+    },
   ]);
+ 
+  
   const [searchCriteria, setSearchCriteria] = useState({
     deviceType: "",
     deviceName: "",
@@ -121,18 +235,7 @@ const DataTable = () => {
     setData(filteredData);
   };
 
-  //table style 
-  const rowStyle = (row, rowIndex) => {
-    // Apply background color to every second row
-    if (rowIndex % 2 === 1) {
-      return { backgroundColor: "rgba(250, 250, 253, 1)" };
-    }
-    return {};
-  };
-  const headerStyle = () => {
-    // Apply font styles to column names
-    return { fontWeight: "bold", fontSize: "14px" };
-  };
+
 
   return (
     <div>
@@ -205,15 +308,20 @@ const DataTable = () => {
       </Row>
       </Form>
 
-      <Row>
-        <Col>
+      <Row >
+        <Col className="bg-white p-4">
           <BootstrapTable
             keyField="id"
             data={data}
             columns={columns}
-            pagination={paginationFactory()}
+            pagination={{
+              ...paginationFactory(),
+              classes: "pagination-button", // Apply the custom class to pagination buttons
+            }}
             sort={{ caretRenderer: customSortCaret }}
-            rowStyle={rowStyle}
+            striped
+            bordered={false}
+            hover={true}
           />
         </Col>
       </Row>

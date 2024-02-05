@@ -50,3 +50,100 @@ text-transform: capitalize;
 color: #FFFFFF;
 
 }
+
+/* Add your existing styles here */
+
+/* Status colors */
+.status-cell {
+  padding: 2px 5px;
+}
+
+.status-revoked {
+  background-color: red;
+  color: white;
+}
+
+.status-completed {
+  background-color: green;
+  color: white;
+}
+
+.status-expired {
+  background-color: grey;
+  color: white;
+}
+
+.status-pending {
+  background-color: yellow;
+  color: black;
+}
+
+.status-active {
+  background-color: blue;
+  color: white;
+}
+
+.font-design-header{
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-weight: 700 !important;
+  line-height: 19px !important;
+  letter-spacing: 0em  !important;
+  text-align: left  !important;
+  color: rgba(139, 139, 162, 1) !important;
+  
+}
+.font-design-data{
+  font-size: 14px  !important;
+  font-weight: 500  !important;
+  line-height: 19px  !important;
+  letter-spacing: 0em  !important;
+  text-align: left  !important;
+  color: rgba(48, 47, 89, 1) !important;
+}
+
+.status-data{
+  font-size: 14px  !important;
+  font-weight: 500  !important;
+  line-height: 19px  !important;
+  letter-spacing: 0em  !important;
+  text-align: left  !important;
+  color: white !important;
+}
+
+/* Add this to your CSS stylesheet */
+.custom-odd-row {
+  background-color: rgba(250, 250, 253, 1) !important;
+}
+
+.custom-even-row {
+  background-color: white;
+}
+.custom-sort-caret {
+  vertical-align: middle !important; /* Adjust as needed */
+  margin-left: 5px !important; /* Adjust as needed */
+  color: black !important;
+  
+}
+
+.pagination-button  {
+  background-color: rgba(250, 250, 253, 1) !important;
+  color: #000; /* Adjust text color as needed */
+
+padding: 8px;
+gap: 8px;
+
+width: 40px;
+height: 40px;
+
+border-radius: 8px;
+
+
+/* Text */
+
+width: 17px;
+height: 19px;
+
+
+}

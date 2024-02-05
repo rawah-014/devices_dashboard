@@ -14,11 +14,11 @@ const Devices = () => {
   return (
     <Container fluid>
       <Row>
-        <Col md={2}>
+        <Col md={3}>
           {/* Sidebar component */}
           <Sidebar />
         </Col>
-       <Col md={1}></Col>
+   
        
         <Col md={9}>
           <Container fluid>
